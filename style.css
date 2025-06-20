@@ -77,9 +77,11 @@ a:visited {
   grid-template-columns: 1fr 1fr 1fr 1fr;
   gap: 0.75rem 1.5rem;
 }
+
 .workout--running {
   border-left: 5px solid var(--color-brand--2);
 }
+
 .workout--cycling {
   border-left: 5px solid var(--color-brand--1);
 }
@@ -215,6 +217,256 @@ a:visited {
 .running-popup .leaflet-popup-content-wrapper {
   border-left: 5px solid var(--color-brand--2);
 }
+
 .cycling-popup .leaflet-popup-content-wrapper {
   border-left: 5px solid var(--color-brand--1);
+}
+
+/* MEDIA QUERIES */
+
+/* Large tablets/laptops: 992px to 1199px */
+@media (max-width: 1199px) and (min-width: 992px) {
+  html {
+    font-size: 56.25%;
+    /* 9px */
+  }
+
+  .sidebar {
+    flex-basis: 45rem;
+  }
+
+  body {
+    padding: 2rem;
+  }
+}
+
+/* Small tablets: 768px to 991px */
+@media (max-width: 991px) and (min-width: 768px) {
+  html {
+    font-size: 50%;
+    /* 8px */
+  }
+
+  body {
+    flex-direction: column;
+    padding: 1.5rem;
+    height: auto;
+    min-height: 100vh;
+  }
+
+  .sidebar {
+    flex-basis: auto;
+    width: 100%;
+    order: 1;
+    padding: 2.5rem 4rem;
+    margin-bottom: 1.5rem;
+  }
+
+  #map {
+    order: 2;
+    height: 65vh;
+    min-height: 450px;
+  }
+
+  .workouts {
+    height: auto;
+    max-height: 45vh;
+  }
+
+  .logo {
+    height: 4.5rem;
+    margin-bottom: 3rem;
+  }
+
+  .workout {
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 0.75rem 1.25rem;
+  }
+
+  .form {
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem 2rem;
+    height: auto;
+    padding: 1.5rem 2.5rem;
+  }
+
+  .form.hidden {
+    transform: translateY(-25rem);
+  }
+}
+
+/* Extra small devices: 481px to 767px */
+@media (max-width: 767px) and (min-width: 481px) {
+  html {
+    font-size: 43.75%;
+    /* 7px */
+  }
+
+  body {
+    flex-direction: column;
+    padding: 1.25rem;
+    height: auto;
+    min-height: 100vh;
+  }
+
+  .sidebar {
+    flex-basis: auto;
+    width: 100%;
+    order: 1;
+    padding: 2rem 3rem;
+    margin-bottom: 1rem;
+  }
+
+  #map {
+    order: 2;
+    height: 55vh;
+    min-height: 350px;
+  }
+
+  .workouts {
+    height: auto;
+    max-height: 35vh;
+  }
+
+  .logo {
+    height: 4rem;
+    margin-bottom: 2rem;
+  }
+
+  .workout {
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem 1rem;
+    padding: 1.25rem 2rem;
+  }
+
+  .workout__details {
+    justify-content: flex-start;
+  }
+
+  .form {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    height: auto;
+    padding: 1.5rem 2rem;
+  }
+
+  .form.hidden {
+    transform: translateY(-20rem);
+  }
+
+  .form__label {
+    flex: 0 0 45%;
+    font-size: 1.5rem;
+  }
+
+  .form__input {
+    font-size: 1.5rem;
+    padding: 0.4rem 1rem;
+  }
+
+  .copyright {
+    font-size: 1.2rem;
+  }
+}
+
+/* Mobile: Up to 480px */
+@media (max-width: 480px) {
+  html {
+    font-size: 37.5%;
+    /* 6px */
+  }
+
+  body {
+    flex-direction: column;
+    padding: 1rem;
+    height: auto;
+    min-height: 100vh;
+  }
+
+  .sidebar {
+    flex-basis: auto;
+    width: 100%;
+    order: 1;
+    padding: 1.5rem 2rem;
+    margin-bottom: 1rem;
+  }
+
+  #map {
+    order: 2;
+    height: 50vh;
+    min-height: 300px;
+  }
+
+  .workouts {
+    height: auto;
+    max-height: 30vh;
+  }
+
+  .logo {
+    height: 3.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .workout {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+    padding: 1rem 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .workout__details {
+    justify-content: space-between;
+  }
+
+  .form {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+    height: auto;
+    padding: 1rem 1.5rem;
+  }
+
+  .form.hidden {
+    transform: translateY(-18rem);
+  }
+
+  .form__label {
+    flex: 0 0 40%;
+    font-size: 1.6rem;
+  }
+
+  .form__input {
+    font-size: 1.6rem;
+    padding: 0.5rem 1rem;
+  }
+
+  .copyright {
+    font-size: 1.1rem;
+    padding: 0 1rem;
+  }
+}
+
+/* Landscape Orientation for Mobile */
+@media (max-height: 500px) and (orientation: landscape) and (max-width: 991px) {
+  body {
+    flex-direction: row;
+    height: 100vh;
+  }
+
+  .sidebar {
+    flex-basis: 35rem;
+    width: auto;
+    margin-bottom: 0;
+    margin-right: 1rem;
+    order: 1;
+  }
+
+  #map {
+    order: 2;
+    height: 100%;
+  }
+
+  .workouts {
+    height: 60vh;
+    max-height: none;
+  }
 }
