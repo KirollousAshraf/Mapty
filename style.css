@@ -222,6 +222,57 @@ a:visited {
   border-left: 5px solid var(--color-brand--1);
 }
 
+/* Clear All Button */
+.clear-all-btn {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 1rem 2rem;
+  font-size: 1.4rem;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  margin-bottom: 2rem;
+  transition: all 0.2s;
+}
+
+.clear-all-btn:hover {
+  background-color: #c82333;
+  transform: translateY(-1px);
+}
+
+.clear-all-btn:active {
+  transform: translateY(0);
+}
+
+.clear-all-btn:disabled {
+  background-color: var(--color-light--1);
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Workout Delete Button */
+.workout__delete-btn {
+  background-color: transparent;
+  border: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+  justify-self: end;
+}
+
+.workout__row-with-delete {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  grid-column: 1 / -1;
+}
+
+
+
+
+
+
 /* MEDIA QUERIES */
 
 /* Large tablets/laptops: 992px to 1199px */

@@ -9,6 +9,8 @@ const inputDistance = document.querySelector('.form__input--distance');
 const inputDuration = document.querySelector('.form__input--duration');
 const inputCadence = document.querySelector('.form__input--cadence');
 const inputElevation = document.querySelector('.form__input--elevation');
+const clearAllButton = document.querySelector('.clear-all-btn');
+const deleteWork = document.querySelectorAll('.workout__delete-btn');
 
 class Workout {
     date = new Date();
@@ -78,6 +80,9 @@ class App {
         form.addEventListener('submit', this._newWorkout.bind(this));
         inputType.addEventListener('change', this._toggleElevationField);
         containerWorkouts.addEventListener('click', this._movePopOut.bind(this))
+        clearAllButton.addEventListener('click', this._clearAll.bind(this));
+        containerWorkouts.addEventListener('click', this._deleteWorkout.bind(this));
+
         // Event Handler Functions
 
     }
@@ -193,7 +198,10 @@ class App {
     _renderWorkout(workout) {
         let html = `
         <li class="workout workout--${workout.type}" data-id="${workout.id}">
+         <div class="workout__row-with-delete">
           <h2 class="workout__title">${workout.describe}</h2>
+           <button class="workout__delete-btn">🗑️</button>
+         </div>
           <div class="workout__details">
             <span class="workout__icon">${workout.type === 'running' ? '🏃‍♂️' : '🚴‍♀️'}</span>
             <span class="workout__value">${workout.distance}</span>
@@ -273,6 +281,32 @@ class App {
             this._renderWorkout(workout);
         });
     };
+
+    _clearAll() {
+        if (confirm('are you sure you need to delete all workouts')) {
+            // console.log("hello", this.#workouts);
+            this.#workouts.splice(0);
+            this._setDataLocalStorage();
+            location.reload();
+        };
+
+    };
+
+    _deleteWorkout(e) {
+        if (!e.target.classList.contains('workout__delete-btn')) return;
+
+        const workoutEl = e.target.closest('.workout');
+
+        if (!workoutEl) return;
+        const workout = this.#workouts.findIndex(work => work.id === workoutEl.dataset.id);
+
+        if (confirm('are you sure you need to delete workout')) {
+            this.#workouts.splice(workout, 1);
+            this._setDataLocalStorage();
+            location.reload();
+        };
+    };
+
 
     reset() {
         localStorage.removeItem('workouts');
